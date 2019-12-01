@@ -4,17 +4,59 @@ using UnityEngine;
 
 public class Pickup_controller : MonoBehaviour
 {
+    //滑鼠射線設定
+    Ray ray; //射線
+    RaycastHit hit; //被打到的物件
+    float raylength = 2f; //射線長度
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //滑鼠點擊時，若鼠標前有物件(center of camera)，則與物件互動
-        //將物品清單的對應項目設為true
-        //消滅場景中的物件
+
+        //ray在camera中間
+        ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
+        Debug.DrawRay(transform.position, forward, Color.yellow);
+
+
+        if (Physics.Raycast(ray, out hit, raylength)) //out是被打到ㄉ
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (hit.transform.gameObject.tag == "interactive") //點到的東西可以互動
+                {
+                    //跳出資訊
+                    //放到背包callUI
+                    //子物件?
+
+                    //消滅物件
+                    print("should destroy");
+                    Destroy(hit.transform.gameObject);
+                    //讓技能controller可以++
+                }
+                else if (hit.transform.gameObject.tag == "clues") // 線索物件
+                {
+                    //跳出資訊
+                    //放到背包UI
+                    Destroy(hit.transform.gameObject);
+                }
+                else if (hit.transform.gameObject.tag == "checking") //調查物件
+                {
+
+                }
+                else if (hit.transform.gameObject.tag == "NPC") //NPC對話
+                {
+
+                }
+            }
+        }
     }
+    //outline可互動物件
+    //分辨他是那一類物件
 }

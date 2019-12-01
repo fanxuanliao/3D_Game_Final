@@ -5,7 +5,7 @@ using UnityEngine;
 public class Camera_controller : MonoBehaviour
 {
 
-    public float Camera_Move = 5f;
+    public float Camera_Move = 3f;
     // Start is called before the first frame update
     void Start()
     {
