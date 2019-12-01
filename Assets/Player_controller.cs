@@ -19,7 +19,7 @@ public class Player_controller : MonoBehaviour
         float mov_z = Input.GetAxisRaw("Vertical");
         transform.Translate(Vector3.right * mov_x * speed * Time.deltaTime);
         transform.Translate(Vector3.forward * mov_z * speed * Time.deltaTime);
-        float view_x = 1f * Input.GetAxis("Mouse X");
+        float view_x = 0.8f * Input.GetAxis("Mouse X");
         
         transform.Rotate(0, view_x, 0);
         //
