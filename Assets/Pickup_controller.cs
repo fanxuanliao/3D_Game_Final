@@ -7,7 +7,7 @@ public class Pickup_controller : MonoBehaviour
     //滑鼠射線設定
     Ray ray; //射線
     RaycastHit hit; //被打到的物件
-    float raylength = 2f; //射線長度
+    float raylength = 5f; //射線長度
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,13 @@ public class Pickup_controller : MonoBehaviour
 
         //ray在camera中間
         ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
-        Debug.DrawRay(transform.position, forward, Color.yellow);
+        //Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
+        //Debug.DrawRay(transform.position, forward, Color.yellow);
 
 
         if (Physics.Raycast(ray, out hit, raylength)) //out是被打到ㄉ
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0)) //按下滑鼠
             {
                 if (hit.transform.gameObject.tag == "interactive") //點到的東西可以互動
                 {
@@ -36,7 +36,7 @@ public class Pickup_controller : MonoBehaviour
                     //子物件?
 
                     //消滅物件
-                    print("should destroy");
+                    //print("should destroy");
                     Destroy(hit.transform.gameObject);
                     //讓技能controller可以++
                 }
@@ -53,6 +53,10 @@ public class Pickup_controller : MonoBehaviour
                 else if (hit.transform.gameObject.tag == "NPC") //NPC對話
                 {
 
+                }
+                else if (hit.transform.gameObject.tag == "Door")
+                {
+                    hit.transform.gameObject.GetComponent<Door_controller>().hit();
                 }
             }
         }
