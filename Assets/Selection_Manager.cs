@@ -9,12 +9,12 @@ public class Selection_Manager : MonoBehaviour
     [SerializeField] private Material default_material;
     private Color default_color;
     private Transform _selection;
-    float raylength;
+    float raylength = 5.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        raylength = 2.0f;
+        //raylength = 2.0f;
     }
 
     // Update is called once per frame
