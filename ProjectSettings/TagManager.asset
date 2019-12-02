@@ -6,10 +6,7 @@ TagManager:
   tags:
   - Door
   - interactive
-<<<<<<< HEAD
-=======
   - clues
->>>>>>> 25948696eaebc0d213a19ebdf656aa1177ab637d
   layers:
   - Default
   - TransparentFX
