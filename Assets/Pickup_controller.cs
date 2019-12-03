@@ -8,6 +8,7 @@ public class Pickup_controller : MonoBehaviour
     Ray ray; //射線
     RaycastHit hit; //被打到的物件
     float raylength = 5f; //射線長度
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class Pickup_controller : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raylength)) //out是被打到ㄉ
         {
+
             if (Input.GetMouseButtonUp(0)) //按下滑鼠
             {
                 if (hit.transform.gameObject.tag == "interactive") //點到的東西可以互動
@@ -48,7 +50,7 @@ public class Pickup_controller : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "checking") //調查物件
                 {
-
+                    player.GetComponent<player_fungus>().send_messege(hit.transform.name);//用fungus顯示物品資訊
                 }
                 else if (hit.transform.gameObject.tag == "NPC") //NPC對話
                 {
