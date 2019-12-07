@@ -15,7 +15,11 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
         //基本角色移動
+<<<<<<< Updated upstream
         if(Input.GetKey("left shift")) speed=12;
+=======
+        if (Input.GetKey("left shift")) speed = 12;
+>>>>>>> Stashed changes
         else speed = 6;
         float mov_x = Input.GetAxisRaw("Horizontal");
         float mov_z = Input.GetAxisRaw("Vertical");

@@ -22,5 +22,8 @@ public class Camera_controller : MonoBehaviour
         Cursor.visible = false;//隱藏滑鼠
         Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
 
+        Cursor.visible = false;//隱藏滑鼠
+        Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
+
     }
 }
