@@ -50,11 +50,7 @@ public class Pickup_controller : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "checking") //調查物件
                 {
-                    player.GetComponent<player_fungus>().send_messege(hit.transform.name);//用fungus顯示物品資訊
-                }
-                else if (hit.transform.gameObject.tag == "NPC") //NPC對話
-                {
-
+                    player.GetComponent<player_fungus>().send_messege(hit.transform.name); //用fungus顯示物品資訊
                 }
                 else if (hit.transform.gameObject.tag == "Door")
                 {

@@ -4,60 +4,60 @@ using UnityEngine;
 
 public class Selection_Manager : MonoBehaviour
 {
-    [SerializeField]private Material interactive_hl;
-    [SerializeField]private Material checking_hl;
-    [SerializeField] private Material default_material;
     private Color default_color;
     private Transform _selection;
-    float raylength = 5.0f;
+    float raylength;
 
     // Start is called before the first frame update
     void Start()
     {
-        //raylength = 2.0f;
+        raylength = 2.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
-        Debug.DrawRay(transform.position, forward, Color.yellow);
-        if(_selection != null)
+        //Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
+        //Debug.DrawRay(transform.position, forward, Color.yellow);
+        //Debug顯示射線
+
+        if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
-            //selectionRenderer.material = default_material;
             selectionRenderer.material.color = default_color;
             _selection = null;
         }
-        //儲存原先的material
+        //還原原先的material
+
         var mouse = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
         //射線
-        if(Physics.Raycast(mouse, out hit, raylength))
+        if (Physics.Raycast(mouse, out hit, raylength))
         {
             var selection = hit.transform;
-            if(selection.CompareTag("interactive"))
+            default_color = selection.GetComponent<Renderer>().material.color;
+            //儲存原先的color
+            if (selection.CompareTag("interactive"))
             {
-            //    print("interactive");
                 var selectionRenderer = selection.GetComponent<Renderer>();
-                if(selectionRenderer != null)
+                if (selectionRenderer != null)
                 {
-                    //selectionRenderer.material = checking_hl;
                     selectionRenderer.material.color = Color.cyan;
 
                 }
                 _selection = selection;
             }
-            else if (selection.CompareTag("checking"))
+            //互動物件是藍ㄉ
+            else if (selection.CompareTag("clues"))
             {
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
-                    //selectionRenderer.material = checking_hl;
                     selectionRenderer.material.color = Color.yellow;
                 }
                 _selection = selection;
             }
+            //線索物件是黃ㄉ
         }
         //射線互動
     }

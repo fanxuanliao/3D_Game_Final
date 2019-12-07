@@ -674,6 +674,13 @@
     <Compile Include="Assets\Pickup_controller.cs" />
     <Compile Include="Assets\Player_controller.cs" />
     <Compile Include="Assets\player_fungus.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\Selection_Manager.cs" />
     <None Include="Assets\Fungus\Thirdparty\ThirdPartyNotices.txt" />
     <None Include="Assets\models\MegaPack1Lite\RomanCityPack1Lite\README.txt" />
@@ -698,6 +705,7 @@
     <None Include="Assets\FungusExamples\Attribution.txt" />
     <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
     <None Include="Assets\FungusExamples\FirstPerson\Visuals\Google Poly\Lock\CC-BY.txt" />
+    <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
     <None Include="Assets\FungusExamples\TheFacility\Fonts\aleo\SIL Open Font License.txt" />
     <None Include="Assets\FungusExamples\Sherlock\Readme.txt" />
     <None Include="Assets\models\MegaPack1Lite\EnchantedForestPack1\README.txt" />
@@ -718,6 +726,7 @@
     <None Include="Assets\models\MegaPack1Lite\ToolsAndWeapons\README.txt" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\models\devil_village\ReadMe.txt" />
+    <None Include="Assets\RainMaker\Readme.txt" />
     <None Include="Assets\Fungus\Textures\Attribution.txt" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMPro.cginc" />

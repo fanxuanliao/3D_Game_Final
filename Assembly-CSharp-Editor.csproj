@@ -164,6 +164,7 @@
     <Compile Include="Assets\Fungus\Thirdparty\FungusLua\Scripts\Editor\MenuItems.cs" />
     <Compile Include="Assets\Fungus\Thirdparty\LineEndings\Editor\LineEndingsEditMenu.cs" />
     <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Editor\SfxrGenerator.cs" />
+    <Compile Include="Assets\RainMaker\Editor\RainMakerEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
