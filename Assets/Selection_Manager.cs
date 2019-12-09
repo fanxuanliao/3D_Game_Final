@@ -11,7 +11,7 @@ public class Selection_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        raylength = 2.0f;
+        raylength = 4.0f;
     }
 
     // Update is called once per frame
@@ -29,10 +29,10 @@ public class Selection_Manager : MonoBehaviour
         }
         //還原原先的material
 
-        var mouse = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
         //射線
-        if (Physics.Raycast(mouse, out hit, raylength))
+        if (Physics.Raycast(ray, out hit, raylength))
         {
             var selection = hit.transform;
             default_color = selection.GetComponent<Renderer>().material.color;
@@ -53,11 +53,11 @@ public class Selection_Manager : MonoBehaviour
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
-                    selectionRenderer.material.color = Color.yellow;
+                    selectionRenderer.material.color = Color.green;
                 }
                 _selection = selection;
             }
-            //線索物件是黃ㄉ
+            //線索物件是綠ㄉ
         }
         //射線互動
     }
