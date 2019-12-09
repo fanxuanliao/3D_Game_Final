@@ -8,6 +8,9 @@ TagManager:
   - interactive
   - clues
   - checking
+  - Enemy
+  - Laser
+  - puzzle
   layers:
   - Default
   - TransparentFX
