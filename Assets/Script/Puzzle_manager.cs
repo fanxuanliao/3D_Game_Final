@@ -8,6 +8,7 @@ public class Puzzle_manager : MonoBehaviour
     float raylength;
     public GameObject underBed;
     public GameObject player;
+    bool beaten;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,15 +64,31 @@ public class Puzzle_manager : MonoBehaviour
                         {
                             player.GetComponent<player_fungus>().send_messege("UNDER_BED");
                             //fungus說床下有東C
-                            print("123");
                         }
 
                         if (Input.GetKeyDown(KeyCode.R) && GameObject.Find("Player").GetComponent<Pickup_controller>().ability[0])
                         //有掃把 & 按下R使用
                         {
-                            print("456");
                             underBed.SetActive(true);
                             //把線索setActive
+                        }
+                        break;
+                    case "HORNYSKULL":
+                        
+                        if (Input.GetMouseButtonUp(0))
+                        {
+                            if (!beaten)
+                            GameObject.Find("Player").GetComponent<player_fungus>().send_messege(hit.transform.name);
+                            //fungus好色骷髏講話
+                            else
+                                Flowchart.BroadcastFungusMessage("Beaten_horny_skull");
+                        }
+
+                        if (Input.GetKeyDown(KeyCode.R) && GameObject.Find("Player").GetComponent<Pickup_controller>().ability[0])
+                        //有掃把 & 按下R使用
+                        {
+                            Flowchart.BroadcastFungusMessage("Beat_horny_skull");
+                            beaten = true;
                         }
                         break;
                 }

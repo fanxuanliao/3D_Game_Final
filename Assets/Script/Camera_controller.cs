@@ -18,11 +18,11 @@ public class Camera_controller : MonoBehaviour
     void Update()
     {
         //鏡頭跟著滑鼠移動'
-        //if (flowchart.GetBooleanVariable("talking") == false)
-        //{
+        if (flowchart.GetBooleanVariable("talking") == false)
+        {
             float view_y = Camera_move * Input.GetAxis("Mouse Y");
             transform.Rotate(-view_y, 0, 0);
-            
+        /*    
             if (GameObject.Find("Player").GetComponent<player_fungus>().Camera_lock == true)
             {
                 Cursor.visible = false;//隱藏滑鼠
@@ -32,7 +32,8 @@ public class Camera_controller : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
             }
-        //}
+          */  
+        }
 
     }
 }

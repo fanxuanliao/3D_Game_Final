@@ -681,6 +681,7 @@
     <Compile Include="Assets\Script\ren.cs" />
     <Compile Include="Assets\Script\Selection_Manager.cs" />
     <Compile Include="Assets\Script\Stairs_controller.cs" />
+    <Compile Include="Assets\transparent.cs" />
     <None Include="Assets\Fungus\Thirdparty\ThirdPartyNotices.txt" />
     <None Include="Assets\models\MegaPack1Lite\RomanCityPack1Lite\README.txt" />
     <None Include="Assets\models\book&amp;plant\README.txt" />

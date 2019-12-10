@@ -43,7 +43,7 @@ public class player_fungus : MonoBehaviour
             case "Eater_skull":
                 Flowchart.BroadcastFungusMessage("TalkToEaterSkull");
                 break;
-            case "Horny_skull":
+            case "HORNYSKULL":
                 Flowchart.BroadcastFungusMessage("TalkToHornySkull");
                 break;
             case "Props_Skeleton_Skull":

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+using Fungus;
 
 public class Lock_controller : MonoBehaviour
 {
@@ -11,14 +13,14 @@ public class Lock_controller : MonoBehaviour
     //哪個圖
     int ID;
     //位置
-    int[] inputPassword = new int[6];
+    int[] inputPassword = new int[4];
     //記每個圖是哪個圖
     enum doorLock : int
     {
         Plane_1,
         Plane_2,
-        Plane_3,
-        Plane_4,
+    //    Plane_3,
+    //    Plane_4,
         Plane_5,
         Plane_6,
     }
@@ -49,9 +51,16 @@ public class Lock_controller : MonoBehaviour
                     //改變material
                     ID = (int)Enum.Parse(typeof(doorLock), hit.transform.name);
                     inputPassword[ID] = index;
+                    print(inputPassword[0] +" "+ inputPassword[1]+" " + inputPassword[2] +" "+ inputPassword[3]);
                     //把密碼記下來
                 }
             }
+        }
+        if (inputPassword[0] == 3 && inputPassword[1] == 2 &&
+            inputPassword[2] == 5 && inputPassword[3] == 4)
+        {
+            Flowchart.BroadcastFungusMessage("magic_Unlock");
+            gameObject.SetActive(false);
         }
     }
 }
