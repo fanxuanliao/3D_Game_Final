@@ -12,7 +12,7 @@ public class Lock_controller : MonoBehaviour
     int ID;
     //位置
     int[] inputPassword = new int[6];
-    //寄每個圖是那個圖
+    //記每個圖是哪個圖
     enum doorLock : int
     {
         Plane_1,

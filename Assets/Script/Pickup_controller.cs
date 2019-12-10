@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class Pickup_controller : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Pickup_controller : MonoBehaviour
     RaycastHit hit; //被打到的物件
     float raylength = 4f; //射線長度
     public GameObject player;
+    public Flowchart flowchart;
 
     enum intereactiveIndex : int
     {
@@ -73,7 +75,10 @@ public class Pickup_controller : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "checking") //調查物件
                 {
-                    player.GetComponent<player_fungus>().send_messege(hit.transform.name);//用fungus顯示物品資訊
+                    if (flowchart.GetBooleanVariable("talking") == false)
+                    {
+                        player.GetComponent<player_fungus>().send_messege(hit.transform.name);//用fungus顯示物品資訊
+                    }
                 }
                 else if (hit.transform.gameObject.tag == "Door")
                 {
