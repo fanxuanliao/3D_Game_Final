@@ -11,6 +11,8 @@ public class Pickup_controller : MonoBehaviour
     RaycastHit hit; //被打到的物件
     float raylength = 4f; //射線長度
     public GameObject player;
+    public GameObject magic;
+    public GameObject transport;
     public Flowchart flowchart;
 
     enum intereactiveIndex : int
@@ -25,7 +27,7 @@ public class Pickup_controller : MonoBehaviour
         HELMET,
         UNDERBED,
         SKELETON,
-        DAIRY
+        DIARY
     }
 
     internal bool[] ability = new bool[]{ false, false, false };
@@ -58,8 +60,8 @@ public class Pickup_controller : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "interactive") //可以使用的道具
                 {
-                    
-                    int index = (int) Enum.Parse( typeof(intereactiveIndex), hit.transform.gameObject.name );
+
+                    int index = (int)Enum.Parse(typeof(intereactiveIndex), hit.transform.gameObject.name);
                     ability[index] = true;
                     //檢查點到東西的名稱，把ability的真假值改掉 
                     //print(ability[index]); //debug
@@ -68,10 +70,30 @@ public class Pickup_controller : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "clues") // 要蒐集的物件
                 {
-                    int index = (int)Enum.Parse(typeof(cluesIndex), hit.transform.gameObject.name);
-                    backpack[index] = true;
-                    //檢查點到東西的名稱，把backpack的真假值改掉
-                    Destroy(hit.transform.gameObject);
+                    if (hit.transform.gameObject.name == "DIARY")
+                    {
+                        if(backpack[0] && backpack[1] && backpack[2])
+                        {
+                            GameObject.Find("Obstacle").GetComponent<BoxCollider>().enabled = false;
+                            magic.SetActive(true);
+                            transport.SetActive(true);
+                            print("門開ㄌ");
+                            //蒐集完了好棒跳記憶
+                        }
+                        else
+                        {
+                            backpack[3] = true;
+                            print("e04");
+                            //解釋要有所有勇者ㄉ證明才能打開
+                        }
+                    }
+                    else
+                    {
+                        int index = (int)Enum.Parse(typeof(cluesIndex), hit.transform.gameObject.name);
+                        backpack[index] = true;
+                        //檢查點到東西的名稱，把backpack的真假值改掉
+                        Destroy(hit.transform.gameObject);
+                    }
                 }
                 else if (hit.transform.gameObject.tag == "checking") //調查物件
                 {

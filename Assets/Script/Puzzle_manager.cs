@@ -8,7 +8,9 @@ public class Puzzle_manager : MonoBehaviour
     float raylength;
     public GameObject underBed;
     public GameObject player;
+    public GameObject floor;
     bool beaten;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,7 @@ public class Puzzle_manager : MonoBehaviour
                         //已裝水 & 按下E使用
                         {
                             Destroy(hit.transform.gameObject);
+                            floor.SetActive(true);
                             //把髒污給清掉
                         }
 

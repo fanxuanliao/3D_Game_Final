@@ -35,10 +35,11 @@ public class Selection_Manager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, raylength))
         {
             var selection = hit.transform;
-            default_color = selection.GetComponent<Renderer>().material.color;
+
             //儲存原先的color
             if (selection.CompareTag("interactive"))
             {
+                default_color = selection.GetComponent<Renderer>().material.color;
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
@@ -50,6 +51,7 @@ public class Selection_Manager : MonoBehaviour
             //互動物件是藍ㄉ
             else if (selection.CompareTag("clues"))
             {
+                default_color = selection.GetComponent<Renderer>().material.color;
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {

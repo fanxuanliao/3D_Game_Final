@@ -51,7 +51,7 @@ public class Lock_controller : MonoBehaviour
                     //改變material
                     ID = (int)Enum.Parse(typeof(doorLock), hit.transform.name);
                     inputPassword[ID] = index;
-                    print(inputPassword[0] +" "+ inputPassword[1]+" " + inputPassword[2] +" "+ inputPassword[3]);
+                    //print(inputPassword[0] +" "+ inputPassword[1]+" " + inputPassword[2] +" "+ inputPassword[3]);
                     //把密碼記下來
                 }
             }
