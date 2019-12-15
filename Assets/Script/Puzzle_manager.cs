@@ -14,7 +14,7 @@ public class Puzzle_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        raylength = 4.0f;
+        raylength = 7.0f;
     }
 
     // Update is called once per frame
@@ -33,9 +33,10 @@ public class Puzzle_manager : MonoBehaviour
                     case "DIRTYFLOOR":
                         if (Input.GetMouseButtonUp(0))
                         {
-                            //player.GetComponent<player_fungus>().send_messege(hit.transform.name);
+                            player.GetComponent<player_fungus>().send_messege(hit.transform.name);
+                            //Flowchart.BroadcastFungusMessage("Check_DIRTYFLOOR");
                             //fungus說地板很髒
-                            print("髒髒"); //debug
+                            //print("髒髒");
                         }
 
                         if (Input.GetKeyDown(KeyCode.E) && GameObject.Find("Player").GetComponent<Pickup_controller>().ability[2])
