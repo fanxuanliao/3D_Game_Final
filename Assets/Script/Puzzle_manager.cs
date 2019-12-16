@@ -73,6 +73,7 @@ public class Puzzle_manager : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.R) && GameObject.Find("Player").GetComponent<Pickup_controller>().ability[0])
                         //有掃把 & 按下R使用
                         {
+                            Flowchart.BroadcastFungusMessage("Pick_hero");
                             underBed.SetActive(true);
                             //把線索setActive
                         }

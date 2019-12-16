@@ -18,7 +18,10 @@ public class player_fungus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (flowchart.GetBooleanVariable("allAnswerRight") == true)
+        {
+            Give_hero_3();
+        }
     }
 
     public void OnTriggerEnter(Collider other) {
@@ -105,15 +108,15 @@ public class player_fungus : MonoBehaviour
                 case "DIRTYFLOOR":
                     Flowchart.BroadcastFungusMessage("Check_DIRTYFLOOR");
                     break;
+                case "sword":
+                    Flowchart.BroadcastFungusMessage("Check_sword");
+                    break;
 
                 default:
                     break;
             }
             Camera_lock = true;
-            if (flowchart.GetBooleanVariable("allAnswerRight") == true)
-            {
-                Give_hero_3();
-            }
+
            
         }
 
