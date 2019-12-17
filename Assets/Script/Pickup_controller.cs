@@ -83,7 +83,7 @@ public class Pickup_controller : MonoBehaviour
                         else
                         {
                             backpack[3] = true;
-                            print("e04");
+                            //print("e04");
                             //解釋要有所有勇者ㄉ證明才能打開
                         }
                     }

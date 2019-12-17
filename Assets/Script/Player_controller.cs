@@ -38,7 +38,7 @@ public class Player_controller : MonoBehaviour
             Flowchart.BroadcastFungusMessage("Collision_Obstacle");
             //GameObject.Find("magic_lock").SetActive(true);
         }
-        if (other.gameObject.name == "Check_magic_lcok")
+        else if (other.gameObject.name == "Check_magic_lcok")
         {
             Flowchart.BroadcastFungusMessage("Check_magic_lcok");
             Destroy(other.gameObject);

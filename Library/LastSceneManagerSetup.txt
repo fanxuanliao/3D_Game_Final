@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/small_room.unity
-=======
 - path: Assets/Scenes/Village.unity
->>>>>>> 2e7ec198b6cc54c7bb72c7bd7e08299aa17451ec
   isLoaded: 1
   isActive: 1
   isSubScene: 0

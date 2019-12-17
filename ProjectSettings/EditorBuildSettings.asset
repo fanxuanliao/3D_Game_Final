@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Road.unity
     guid: 53e11c80831c29a4ea747d96749ff1ed
+  - enabled: 1
+    path: Assets/Scenes/Village.unity
+    guid: f4f71b972c143ff4ea72b1a82ad2e33c
+  - enabled: 1
+    path: Assets/Scenes/small_room.unity
+    guid: 9c8539f753d4782429c4e8d758caad8b
   m_configObjects: {}

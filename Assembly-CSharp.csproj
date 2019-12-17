@@ -667,6 +667,8 @@
     <Compile Include="Assets\models\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript2D.cs" />
+    <Compile Include="Assets\player_controller_road.cs" />
+    <Compile Include="Assets\player_fungus_road.cs" />
     <Compile Include="Assets\Script\Camera_controller.cs" />
     <Compile Include="Assets\Script\Door_controller.cs" />
     <Compile Include="Assets\Script\Lock_controller.cs" />
