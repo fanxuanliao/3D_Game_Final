@@ -6,12 +6,15 @@ public class Door_controller : MonoBehaviour
 {
     public GameObject door; //取得門
     bool open = false; //是否可以開門
+    public AudioClip doorOpenSound;
+    AudioSource audioSource;
     //public GameObject locked_message; //上鎖提示
 
     // Start is called before the first frame update
     void Start()
     {
         //locked_message.SetActive(false); //文字不顯示（防呆用）
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class Door_controller : MonoBehaviour
     public void hit() //點到門
     {
         open = true;
+        audioSource.PlayOneShot(doorOpenSound, 0.7F);
         /*
         bool key = GameObject.Find("Inventory").GetComponent<Item_manager>().has_key; //是否持有key
         if (key) //若玩家持有key則開門

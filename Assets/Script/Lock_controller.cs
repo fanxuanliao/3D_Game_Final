@@ -25,6 +25,10 @@ public class Lock_controller : MonoBehaviour
         Plane_6,
     }
     //索引
+
+    Color alpha = new Color(0, 0, 0, 0.03f);
+    private bool beginVanish = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +64,30 @@ public class Lock_controller : MonoBehaviour
             inputPassword[2] == 5 && inputPassword[3] == 4)
         {
             Flowchart.BroadcastFungusMessage("magic_Unlock");
-            gameObject.SetActive(false);
+            lock_vanish();
+//            gameObject.SetActive(false);
         }
+
+        //如果已經解開法陣，讓它慢慢變透明
+        if (beginVanish == true) {
+            Renderer currentRenderer = gameObject.GetComponent<Renderer>();
+            if (currentRenderer.material.color.a >= 0)
+            {
+                print(currentRenderer.material.color.a);
+                currentRenderer.material.color -= alpha;
+                print("minus");
+                print(currentRenderer.material.color.a);
+            }
+            else if (currentRenderer.material.color.a <= 0)
+            {
+                gameObject.SetActive(false);
+                print(currentRenderer.material.color.a);
+            }
+        }
+
+    }
+
+    private void lock_vanish() {
+        beginVanish = true;
     }
 }

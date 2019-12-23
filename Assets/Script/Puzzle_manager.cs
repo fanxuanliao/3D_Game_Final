@@ -10,11 +10,14 @@ public class Puzzle_manager : MonoBehaviour
     public GameObject player;
     public GameObject floor;
     bool beaten;
+    public AudioClip beatSkull;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         raylength = 7.0f;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,7 +62,7 @@ public class Puzzle_manager : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.E) && GameObject.Find("Player").GetComponent<Pickup_controller>().ability[1])
                         {
                             GameObject.Find("Player").GetComponent<Pickup_controller>().ability[2] = true;
-                            print("裝水水");
+                            //print("裝水水");
                             //裝水
                         }
                         break;
@@ -94,6 +97,7 @@ public class Puzzle_manager : MonoBehaviour
                         {
                             Flowchart.BroadcastFungusMessage("Beat_horny_skull");
                             beaten = true;
+                            audioSource.PlayOneShot(beatSkull, 0.5F);
                         }
                         break;
                 }
