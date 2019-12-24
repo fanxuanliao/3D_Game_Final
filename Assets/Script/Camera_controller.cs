@@ -34,17 +34,21 @@ public class Camera_controller : MonoBehaviour
             rotationEuler = Quaternion.Euler(-y, x, 0);
             GameObject.Find("Player").transform.rotation = Quaternion.Euler(0, x, 0);
             transform.rotation = rotationEuler;
-            /*    
-                if (GameObject.Find("Player").GetComponent<player_fungus>().Camera_lock == true)
-                {
-                    Cursor.visible = false;//隱藏滑鼠
-                    Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
-                } else
-                {
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.Confined;
-                }
-              */
+                
+                
+              
+        }
+        if (GameObject.Find("Player").GetComponent<player_fungus>().Camera_lock == true)
+        {
+            Debug.LogWarning("隱藏");
+            Cursor.visible = false;//隱藏滑鼠
+            Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
+        }
+        else
+        {
+            Debug.LogWarning("顯現");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
     }

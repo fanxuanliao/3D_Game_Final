@@ -127,5 +127,19 @@ public class player_fungus : MonoBehaviour
         hero3.SetActive(true);
         flowchart.SetBooleanVariable("givenHero3", true);
     }
+
+    public void unlockMouse()
+    {
+        Debug.LogWarning("lock");
+        Camera_lock = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void lockMouse()
+    {
+        Camera_lock = true;
+        Cursor.visible = false;//隱藏滑鼠
+        Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
+    }
 }
 
