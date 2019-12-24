@@ -669,9 +669,7 @@
     <Compile Include="Assets\models\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript2D.cs" />
-    <Compile Include="Assets\player_controller_road.cs" />
-    <Compile Include="Assets\player_fungus_road.cs" />
-    <Compile Include="Assets\player_fungus_village.cs" />
+    <Compile Include="Assets\move.cs" />
     <Compile Include="Assets\ResonanceAudio\Demos\Scripts\DemoPlayerController.cs" />
     <Compile Include="Assets\ResonanceAudio\Demos\Scripts\ResonanceAudioDemo\ResonanceAudioDemoCubeController.cs" />
     <Compile Include="Assets\ResonanceAudio\Demos\Scripts\ResonanceAudioDemo\ResonanceAudioDemoManager.cs" />
@@ -691,7 +689,10 @@
     <Compile Include="Assets\Script\Password_controller.cs" />
     <Compile Include="Assets\Script\Pickup_controller.cs" />
     <Compile Include="Assets\Script\Player_controller.cs" />
+    <Compile Include="Assets\Script\player_controller_road.cs" />
     <Compile Include="Assets\Script\player_fungus.cs" />
+    <Compile Include="Assets\Script\player_fungus_road.cs" />
+    <Compile Include="Assets\Script\player_fungus_village.cs" />
     <Compile Include="Assets\Script\Puzzle_manager.cs" />
     <Compile Include="Assets\Script\ren.cs" />
     <Compile Include="Assets\Script\Selection_Manager.cs" />
@@ -721,6 +722,7 @@
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Types\UnityTypes.txt" />
+    <None Include="Assets\FX\Petal Particles - Cherry Petals\ReadMe.txt" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Fungus\Integrations\Spine\Readme.txt" />
     <None Include="Assets\Fungus\Fonts\Amaranth\SIL Open Font License.txt" />
@@ -812,6 +814,12 @@
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+      <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
