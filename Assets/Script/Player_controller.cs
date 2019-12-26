@@ -17,7 +17,7 @@ public class Player_controller : MonoBehaviour
     void Update()
 {
     //基本角色移動
-    if (Input.GetKey("left shift")) speed = 12;
+    if (Input.GetKey("left shift")) speed = 10;
     else speed = 6;
         if (flowchart.GetBooleanVariable("talking") == false)
         {
@@ -28,6 +28,8 @@ public class Player_controller : MonoBehaviour
             float view_x = 0.8f * Input.GetAxis("Mouse X");
 
             transform.Rotate(0, view_x, 0);
+
+
         }
 
 }
@@ -44,6 +46,8 @@ public class Player_controller : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+
 
 
 }

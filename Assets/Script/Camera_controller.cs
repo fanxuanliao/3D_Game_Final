@@ -16,7 +16,8 @@ public class Camera_controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        lockMouse();
+        //遊戲開始時鎖定滑鼠
     }
 
     // Update is called once per frame
@@ -34,18 +35,18 @@ public class Camera_controller : MonoBehaviour
             rotationEuler = Quaternion.Euler(-y, x, 0);
             GameObject.Find("Player").transform.rotation = Quaternion.Euler(0, x, 0);
             transform.rotation = rotationEuler;
-            /*    
-                if (GameObject.Find("Player").GetComponent<player_fungus>().Camera_lock == true)
-                {
-                    Cursor.visible = false;//隱藏滑鼠
-                    Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
-                } else
-                {
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.Confined;
-                }
-              */
-        }
 
+        }  
+    }
+    public void unlockMouse()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void lockMouse()
+    {
+        Cursor.visible = false;//隱藏滑鼠
+        Cursor.lockState = CursorLockMode.Locked;//把滑鼠鎖定到螢幕中間
+                                                 //在fungus中用call method呼叫即可直接用
     }
 }
