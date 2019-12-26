@@ -248,12 +248,6 @@
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Recorder.Editor">
-      <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Recorder">
-      <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

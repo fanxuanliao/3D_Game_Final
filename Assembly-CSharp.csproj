@@ -62,6 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BrokenVector\UltimateDungeonPack\Scenes\Demo\FPControls\Scripts\CharacterController.cs" />
+    <Compile Include="Assets\BrokenVector\UltimateDungeonPack\Scenes\Demo\FPControls\Scripts\MouseCamLook.cs" />
+    <Compile Include="Assets\BrokenVector\UltimateDungeonPack\Scripts\LightImprove.cs" />
     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
@@ -670,9 +673,6 @@
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\move.cs" />
-    <Compile Include="Assets\ResonanceAudio\Demos\Scripts\DemoPlayerController.cs" />
-    <Compile Include="Assets\ResonanceAudio\Demos\Scripts\ResonanceAudioDemo\ResonanceAudioDemoCubeController.cs" />
-    <Compile Include="Assets\ResonanceAudio\Demos\Scripts\ResonanceAudioDemo\ResonanceAudioDemoManager.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\ResonanceAudio.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\ResonanceAudioAcousticMesh.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\ResonanceAudioListener.cs" />
@@ -732,7 +732,6 @@
     <None Include="Assets\models\MegaPack1Lite\ToolsAndWeapons\README.txt" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\models\devil_village\ReadMe.txt" />
-    <None Include="Assets\ResonanceAudio\Demos\Environment\ResonanceAudioDemo\CubeRoomUnlitGrayscale.shader" />
     <None Include="Assets\models\RainMaker\Readme.txt" />
     <None Include="Assets\Fungus\Textures\Attribution.txt" />
     <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_Bitmap.shader" />
@@ -814,12 +813,6 @@
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Recorder.Editor">
-      <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Recorder">
-      <HintPath>C:/Users/fanxuan/Desktop/3D_Game_Final-master/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
