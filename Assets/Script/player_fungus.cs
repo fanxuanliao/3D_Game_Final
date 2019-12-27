@@ -12,7 +12,6 @@ public class player_fungus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -22,6 +21,7 @@ public class player_fungus : MonoBehaviour
         {
             Give_hero_3();
         }
+
     }
 
     public void OnTriggerEnter(Collider other) {
@@ -50,7 +50,6 @@ public class player_fungus : MonoBehaviour
                 case "Narcissism_skull":
                     if (flowchart.GetBooleanVariable("givenHero3") == false)
                     {
-                        Camera_lock = false;
                         Flowchart.BroadcastFungusMessage("TalkToNarcissismSkull");
                     }
                     break;
