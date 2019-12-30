@@ -7,6 +7,7 @@ public class player_fungus_village : MonoBehaviour
 {
     public Flowchart flowchart;
     private bool cantalk = false;
+    private bool OS_Invastigated_avialible = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,11 @@ public class player_fungus_village : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (flowchart.GetIntegerVariable("InvestigatedNum") ==3 && OS_Invastigated_avialible == true)
+        {
+            Flowchart.BroadcastFungusMessage("OS_Invastigated");
+            OS_Invastigated_avialible = false;
+        }
     }
 
     public void OnCollisionEnter(UnityEngine.Collision other)
@@ -24,7 +29,10 @@ public class player_fungus_village : MonoBehaviour
         switch (other.gameObject.name)
         {
             case "Scene_Boundary":
-                Flowchart.BroadcastFungusMessage("Bumped_Boundary");
+                if (flowchart.GetIntegerVariable("InvestigatedNum") < 3)
+                    Flowchart.BroadcastFungusMessage("Bumped_Boundary");
+                else
+                    Flowchart.BroadcastFungusMessage("Bumped_Boundary_Invastigated");
                 break;
             default:
                 break;
@@ -45,44 +53,50 @@ public class player_fungus_village : MonoBehaviour
             cantalk = false;
             switch (object_name)
             {
-                case "VillagerA":
+                case "villagerA":
                     Flowchart.BroadcastFungusMessage("talkToVillagerA");
                     break;
-                case "VillagerB":
+                case "villagerB":
                     Flowchart.BroadcastFungusMessage("talkToVillagerB");
                     break;
-                case "VillagerC":
+                case "villagerC":
                     Flowchart.BroadcastFungusMessage("talkToVillagerC");
                     break;
-                case "VillagerD":
+                case "villagerD":
                     Flowchart.BroadcastFungusMessage("talkToVillagerD");
+                    flowchart.SetBooleanVariable("MailTaskRecieved",true);
                     break;
-                case "talkToVillageHead_init":
-                    Flowchart.BroadcastFungusMessage("talkToVillageHead_init");
+                case "village_head":         
+                    if (flowchart.GetBooleanVariable("finishedWellTask") == true)
+                    {
+                        Flowchart.BroadcastFungusMessage("talkToVillageHead_DoneWellTask");
+                    }
+                    else if (flowchart.GetBooleanVariable("BeenToHeadHouse") == true)
+                    {
+                        Flowchart.BroadcastFungusMessage("talkToVillageHead_EnteredHouse");
+                    }
+                    else {
+                        Flowchart.BroadcastFungusMessage("talkToVillageHead_init");
+                    }
                     break;
-                case "talkToWeaponKeeper_init":
-                    Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_init");
+                case "weapon_keeper":
+                    if (flowchart.GetIntegerVariable("InvestigatedNum") >= 3 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
+                    {
+                        Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_invastigated");
+                    }
+                    else if (flowchart.GetBooleanVariable("BeenToHeadHouse") == true)
+                    {
+                        Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_DoneDelievery");
+                    }
+                    else {
+                        Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_init");
+                    }
                     break;
-                case "talkToGroceryKeeper_init":
+                case "grocery_keeper":
                     Flowchart.BroadcastFungusMessage("talkToGroceryKeeper_init");
                     break;
-                case "talkToInnKeeper_init":
+                case "inn_keeper":
                     Flowchart.BroadcastFungusMessage("talkToInnKeeper_init");
-                    break;
-                case "talkToVillageHead_DoneWellTask":
-                    Flowchart.BroadcastFungusMessage("talkToVillageHead_DoneWellTask");
-                    break;
-                case "talkToVillageHead_EnteredHouse":
-                    Flowchart.BroadcastFungusMessage("talkToVillageHead_EnteredHouse");
-                    break;
-                case "talkToWeaponKeeper_invastigated":
-                    Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_invastigated");
-                    break;
-                case "talkToWeaponKeeper_TalkedToReligion":
-                    Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_TalkedToReligion");
-                    break;
-                case "talkToWeaponKeeper_DoneDelievery":
-                    Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_DoneDelievery");
                     break;
                 case "OpenSmallRoom":
                     Flowchart.BroadcastFungusMessage("OpenSmallRoom");
@@ -90,11 +104,14 @@ public class player_fungus_village : MonoBehaviour
                 case "OS_GoInHeadHouse":
                     Flowchart.BroadcastFungusMessage("OS_GoInHeadHouse");
                     break;
-                case "OS_EmptyChest":
+                case "EmptyChest":
                     Flowchart.BroadcastFungusMessage("OS_EmptyChest");
                     break;
-                case "OS_Invastigated":
-                    Flowchart.BroadcastFungusMessage("OS_Invastigated");
+                case "Inn_sign":
+                    Flowchart.BroadcastFungusMessage("CheckInnSign");
+                    break;
+                case "Grocery_sign":
+                    Flowchart.BroadcastFungusMessage("CheckGrocerySign");
                     break;
 
                 default:

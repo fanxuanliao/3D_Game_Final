@@ -675,6 +675,7 @@
     <Compile Include="Assets\models\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\models\RootVegetables\Scripts\Rotate.cs" />
     <Compile Include="Assets\move.cs" />
+    <Compile Include="Assets\Pickup_controller_village.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\ResonanceAudio.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\ResonanceAudioAcousticMesh.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\ResonanceAudioListener.cs" />
