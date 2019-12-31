@@ -64,7 +64,6 @@ public class player_fungus_village : MonoBehaviour
                     break;
                 case "villagerD":
                     Flowchart.BroadcastFungusMessage("talkToVillagerD");
-                    flowchart.SetBooleanVariable("MailTaskRecieved",true);
                     break;
                 case "village_head":         
                     if (flowchart.GetBooleanVariable("finishedWellTask") == true)
