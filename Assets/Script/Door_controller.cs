@@ -8,11 +8,13 @@ public class Door_controller : MonoBehaviour
     bool open = false; //是否可以開門
     public AudioClip doorOpenSound;
     AudioSource audioSource;
+    float angle;
     //public GameObject locked_message; //上鎖提示
 
     // Start is called before the first frame update
     void Start()
     {
+        angle = door.transform.eulerAngles.y;
         //locked_message.SetActive(false); //文字不顯示（防呆用）
         audioSource = GetComponent<AudioSource>();
     }
@@ -20,7 +22,7 @@ public class Door_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (open == true && door.transform.eulerAngles.y < 80) // 可以開門 & 門開到一半
+        if (open == true && door.transform.eulerAngles.y < angle+80) // 可以開門 & 門開到一半
         {
             //   float v = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
             door.transform.Rotate(new Vector3(0, 1, 0));
