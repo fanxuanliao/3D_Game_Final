@@ -17,7 +17,7 @@ public class player_fungus_village : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (flowchart.GetIntegerVariable("InvestigatedNum") ==3 && OS_Invastigated_avialible == true)
+        if (flowchart.GetIntegerVariable("InvestigatedNum") == 4 && OS_Invastigated_avialible == true)
         {
             Flowchart.BroadcastFungusMessage("OS_Invastigated");
             OS_Invastigated_avialible = false;
@@ -29,7 +29,7 @@ public class player_fungus_village : MonoBehaviour
         switch (other.gameObject.name)
         {
             case "Scene_Boundary":
-                if (flowchart.GetIntegerVariable("InvestigatedNum") < 3)
+                if (flowchart.GetIntegerVariable("InvestigatedNum") < 4)
                     Flowchart.BroadcastFungusMessage("Bumped_Boundary");
                 else
                     Flowchart.BroadcastFungusMessage("Bumped_Boundary_Invastigated");
@@ -79,7 +79,7 @@ public class player_fungus_village : MonoBehaviour
                     }
                     break;
                 case "weapon_keeper":
-                    if (flowchart.GetIntegerVariable("InvestigatedNum") >= 3 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
+                    if (flowchart.GetIntegerVariable("InvestigatedNum") >= 4 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
                     {
                         Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_invastigated");
                     }
@@ -129,7 +129,7 @@ public class player_fungus_village : MonoBehaviour
                     Flowchart.BroadcastFungusMessage("Rabbit");
                     break;
                 case "Bed":
-                    Flowchart.BroadcastFungusMessage("CheckBced");
+                    Flowchart.BroadcastFungusMessage("CheckBed");
                     break;
                 case "Plants":
                     Flowchart.BroadcastFungusMessage("CheckPlants");
@@ -137,17 +137,29 @@ public class player_fungus_village : MonoBehaviour
                 case "WineBoxes":
                     Flowchart.BroadcastFungusMessage("CheckWinesBoxes");
                     break;
-                    /*
-                case "Bed":
-                    Flowchart.BroadcastFungusMessage("CheckBced");
+                case "religion_manA":
+                    Flowchart.BroadcastFungusMessage("talkToReligionA");
                     break;
-                case "Bed":
-                    Flowchart.BroadcastFungusMessage("CheckBced");
+                case "religion_manB":
+                    Flowchart.BroadcastFungusMessage("talkToReligionB");
                     break;
-                case "Bed":
-                    Flowchart.BroadcastFungusMessage("CheckBced");
+                case "religion_manC":
+                    Flowchart.BroadcastFungusMessage("talkToReligionC");
                     break;
-                    */
+                case "religion_manD":
+                    Flowchart.BroadcastFungusMessage("talkToReligionD");
+                    break;
+                /*
+            case "Bed":
+                Flowchart.BroadcastFungusMessage("CheckBced");
+                break;
+            case "Bed":
+                Flowchart.BroadcastFungusMessage("CheckBced");
+                break;
+            case "Bed":
+                Flowchart.BroadcastFungusMessage("CheckBced");
+                break;
+                */
                 default:
                     break;
             }

@@ -13,6 +13,7 @@ public class Pickup_controller_village : MonoBehaviour
     public GameObject player;
     public Flowchart flowchart;
 
+    
     enum intereactiveIndex : int
     {
 
@@ -22,10 +23,6 @@ public class Pickup_controller_village : MonoBehaviour
     {
 
     }
-
-    internal bool[] ability = new bool[] { false, false, false };
-    internal bool[] backpack = new bool[] { false, false, false, false };
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +47,7 @@ public class Pickup_controller_village : MonoBehaviour
                 {
 
                     int index = (int)Enum.Parse(typeof(intereactiveIndex), hit.transform.gameObject.name);
-                    ability[index] = true;
+
                     //檢查點到東西的名稱，把ability的真假值改掉 
                     //print(ability[index]); //debug
                     Destroy(hit.transform.gameObject);

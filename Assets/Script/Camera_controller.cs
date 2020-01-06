@@ -16,7 +16,8 @@ public class Camera_controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lockMouse();
+        Cursor.visible = false;
+        //lockMouse();
         //遊戲開始時鎖定滑鼠
     }
 
