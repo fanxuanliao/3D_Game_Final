@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
+using UnityEngine.SceneManagement;
 
 public class Village_controller : MonoBehaviour
 {
-    internal bool leave = true;
+    public Flowchart flowchart;
+    public GameObject portal;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +17,16 @@ public class Village_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (leave)
-        {
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-        }   
+     
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject.Find("Player").GetComponent<player_fungus_village>().send_messege("Scene_Boundary");
+            SceneManager.LoadScene(2);   
+    }
+    public void OpenPortal() {
+        if (flowchart.GetBooleanVariable("hasSword") == true)
+        {
+            portal.SetActive(true);
+        }
     }
 }

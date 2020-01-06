@@ -34,4 +34,5 @@ public class player_controller_road : MonoBehaviour
             SceneManager.LoadScene(3);  //傳送至村莊
         }
     }
+
 }

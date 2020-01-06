@@ -73,6 +73,7 @@ public class player_fungus_room : MonoBehaviour
                 case "Cactus":
                     Flowchart.BroadcastFungusMessage("CheckCactus");
                     break;
+                
 
                 default:
                     break;

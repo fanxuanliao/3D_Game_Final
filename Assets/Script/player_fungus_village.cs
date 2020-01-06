@@ -79,7 +79,7 @@ public class player_fungus_village : MonoBehaviour
                     }
                     break;
                 case "weapon_keeper":
-                    if (flowchart.GetIntegerVariable("InvestigatedNum") >= 4 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
+                    if (flowchart.GetIntegerVariable("InvestigatedNum") >= 3 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
                     {
                         Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_invastigated");
                     }
@@ -101,7 +101,7 @@ public class player_fungus_village : MonoBehaviour
                     }
                     break;
                 case "inn_keeper":
-                    if (flowchart.GetBooleanVariable("WellTaskRecieved") == true)
+                    if (flowchart.GetBooleanVariable("DoneOrderTask") == true)
                     {
                         Flowchart.BroadcastFungusMessage("talkToInnKeeper_DoneOrderTask");
                     }
@@ -149,17 +149,21 @@ public class player_fungus_village : MonoBehaviour
                 case "religion_manD":
                     Flowchart.BroadcastFungusMessage("talkToReligionD");
                     break;
+                case "Well":
+                    if (flowchart.GetBooleanVariable("WellTaskRecieved") == true)
+                        Flowchart.BroadcastFungusMessage("OS_DoWellTask");
+                break;
+                case "WellSuccess":
+                    Flowchart.BroadcastFungusMessage("OS_WellSuccess");
+                    break;
                 /*
-            case "Bed":
-                Flowchart.BroadcastFungusMessage("CheckBced");
-                break;
-            case "Bed":
-                Flowchart.BroadcastFungusMessage("CheckBced");
-                break;
-            case "Bed":
-                Flowchart.BroadcastFungusMessage("CheckBced");
-                break;
-                */
+        case "Bed":
+            Flowchart.BroadcastFungusMessage("CheckBced");
+            break;
+        case "Bed":
+            Flowchart.BroadcastFungusMessage("CheckBced");
+            break;
+            */
                 default:
                     break;
             }

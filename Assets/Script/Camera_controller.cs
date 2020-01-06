@@ -17,7 +17,7 @@ public class Camera_controller : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        //lockMouse();
+        lockMouse();
         //遊戲開始時鎖定滑鼠
     }
 
