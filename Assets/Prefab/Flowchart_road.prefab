@@ -81,7 +81,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 3314514762630183837}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: -2681497644568743890}
   variables:
   - {fileID: 3241137016807258722}
   description: 
@@ -467,7 +468,7 @@ MonoBehaviour:
   itemId: 11
   indentLevel: 0
   compareOperator: 0
-  variable: {fileID: 3241137016807258722}
+  variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 1

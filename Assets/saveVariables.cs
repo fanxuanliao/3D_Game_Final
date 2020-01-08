@@ -13,9 +13,7 @@ public class saveVariables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         DontDestroyOnLoad(saveVariable);
-        roadfun.SetBooleanVariable("Ending", true);
     }
 
     // Update is called once per frame
