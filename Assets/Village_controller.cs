@@ -21,7 +21,7 @@ public class Village_controller : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-            SceneManager.LoadScene(2);   
+            SceneManager.LoadScene(5);   
     }
     public void OpenPortal() {
         if (flowchart.GetBooleanVariable("hasSword") == true)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.SceneManagement;
 
 public class ending : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class ending : MonoBehaviour
     public void splitWood()
     {
         Destroy(ob);
+    }
+    public void Restart() {
+        SceneManager.LoadScene(1);
+    }
+    public void End()
+    {
+        Application.Quit();
     }
 }
  
