@@ -79,7 +79,7 @@ public class player_fungus_village : MonoBehaviour
                     }
                     break;
                 case "weapon_keeper":
-                    if (flowchart.GetIntegerVariable("InvestigatedNum") >= 3 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
+                    if (flowchart.GetIntegerVariable("InvestigatedNum") > 3 && flowchart.GetBooleanVariable("MailTaskRecieved") == true)
                     {
                         Flowchart.BroadcastFungusMessage("talkToWeaponKeeper_invastigated");
                     }
@@ -92,8 +92,9 @@ public class player_fungus_village : MonoBehaviour
                     }
                     break;
                 case "grocery_keeper":
-                    if (flowchart.GetBooleanVariable("BoxTaskRecieved") == true) {
-                        Flowchart.BroadcastFungusMessage("talkToInnKeeper_DoneOrderTask");
+                    if (flowchart.GetBooleanVariable("OrderTaskRecieved") == true)
+                    {
+                        Flowchart.BroadcastFungusMessage("talkToGroceryKeeper_OrderTaskRecieved");
                     }
                     else
                     {

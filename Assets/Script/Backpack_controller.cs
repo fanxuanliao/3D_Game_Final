@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fungus;
 
 
 public class Backpack_controller : MonoBehaviour
@@ -14,7 +15,10 @@ public class Backpack_controller : MonoBehaviour
     public Button DIARY;
     public Button PROOF;
     [SerializeField] GUISkin backpackSkin;
-    [SerializeField] Texture[] backpackpic;
+    [SerializeField] RawImage[] backpackpic;
+
+    public Flowchart flowchart;
+    public GameObject maincamera;
 
     internal bool[] backpackbool = new bool[5];
 
@@ -48,7 +52,19 @@ public class Backpack_controller : MonoBehaviour
             situation = !situation;
             Backpack.SetActive(situation);
             //開關背包
+            if (situation)
+            {
+                flowchart.SetBooleanVariable("talking", true);
+                maincamera.GetComponent<Camera_controller>().unlockMouse();
+            }
+            else
+            {
+                flowchart.SetBooleanVariable("talking", false);
+                maincamera.GetComponent<Camera_controller>().lockMouse();
+            }
+
         }
+        
     }
 
     void OnGUI()
@@ -87,29 +103,48 @@ public class Backpack_controller : MonoBehaviour
         BED.onClick.AddListener(() => { backpackbool[1] = true; });
         DIARY.onClick.AddListener(() => { backpackbool[3] = true; });
         PROOF.onClick.AddListener(() => { backpackbool[4] = true; });
-        /*
+        
         if (backpackbool[0])
         {
-            GUI.Window(0, windowPosition, backpackWindow, " ");
+            backpackpic[0].gameObject.SetActive(true);
+            if (Input.anyKey || Input.GetMouseButtonDown(0))
+            {
+                backpackpic[0].gameObject.SetActive(false);
+                backpackbool[0] = false;
+            }
         }
         if (backpackbool[1])
         {
-            GUI.Window(1, windowPosition, backpackWindow, " ");
+            backpackpic[1].gameObject.SetActive(true);
+            if (Input.anyKey || Input.GetMouseButtonDown(0))
+            {
+                backpackpic[1].gameObject.SetActive(false);
+                backpackbool[1] = false;
+            }
         }
         if (backpackbool[2])
         {
-            GUI.Window(2, windowPosition, backpackWindow, " ");
+            backpackpic[2].gameObject.SetActive(true);
+            if (Input.anyKey || Input.GetMouseButtonDown(0))
+            {
+                backpackpic[2].gameObject.SetActive(false);
+                backpackbool[2] = false;
+            }
         }
         if (backpackbool[3])
         {
-            GUI.Window(3, windowPosition, backpackWindow, " ");
+            backpackpic[3].gameObject.SetActive(true);
+            if (Input.anyKey || Input.GetMouseButtonDown(0))
+            {
+                backpackpic[3].gameObject.SetActive(false);
+                backpackbool[3] = false;
+            }
+
         }
-        if (backpackbool[4])
-        {
-            //回憶
-        }
-        */
+
+
     }
+    /*
     private void backpackWindow(int id)
     {
         Rect textPosition = new Rect(100, 300, 0, 0);
@@ -134,4 +169,5 @@ public class Backpack_controller : MonoBehaviour
 
         }
     }
+    */
 }

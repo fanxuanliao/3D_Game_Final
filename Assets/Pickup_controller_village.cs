@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Fungus;
 
 public class Pickup_controller_village : MonoBehaviour
@@ -12,6 +13,7 @@ public class Pickup_controller_village : MonoBehaviour
     float raylength = 4f; //射線長度
     public GameObject player;
     public Flowchart flowchart;
+    public Button diary;
 
     
     enum intereactiveIndex : int
@@ -55,31 +57,10 @@ public class Pickup_controller_village : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "clues") // 要蒐集的物件
                 {
-                    /*
-                    if (hit.transform.gameObject.name == "DIARY")
+                    if(hit.transform.gameObject.name == "diary")
                     {
-                        if (backpack[0] && backpack[1] && backpack[2])
-                        {
-                            GameObject.Find("Obstacle").GetComponent<BoxCollider>().enabled = false;
-                            magic.SetActive(true);
-                            transport.SetActive(true);
-                            print("門開ㄌ");
-                            //蒐集完了好棒跳記憶
-                        }
-                        else
-                        {
-                            backpack[3] = true;
-                            //print("e04");
-                            //解釋要有所有勇者ㄉ證明才能打開
-                        }
+                        diary.gameObject.SetActive(true);
                     }
-                    else
-                    {
-                        int index = (int)Enum.Parse(typeof(cluesIndex), hit.transform.gameObject.name);
-                        backpack[index] = true;
-                        //檢查點到東西的名稱，把backpack的真假值改掉
-                        Destroy(hit.transform.gameObject);
-                    }*/
                 }
                 else if (hit.transform.gameObject.tag == "checking") //調查物件
                 {
@@ -94,6 +75,11 @@ public class Pickup_controller_village : MonoBehaviour
                     hit.transform.gameObject.GetComponent<Door_controller>().hit();
                 }
             }
+        }
+        if (diary.gameObject.activeSelf)
+        {
+            if (Input.anyKey)
+                diary.gameObject.SetActive(false);
         }
     }
     //outline可互動物件

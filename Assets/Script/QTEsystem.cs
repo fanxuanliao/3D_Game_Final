@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QTEsystem : MonoBehaviour
 {
@@ -12,36 +13,43 @@ public class QTEsystem : MonoBehaviour
     internal int count_success;
     internal bool pass_well;
     private GameObject player;
-
-    void start()
-    {
-        WaitingForKey = 0;
-        count_success = 0;
-        player = GameObject.Find("player");
-    }
+    public GameObject diary;
+    public RawImage F;
+    public RawImage G;
+    public RawImage SPACE;
+    public RawImage PASS;
+    public RawImage FAIL;
+    public RawImage SUCCESS;
     // Update is called once per frame
     void Update()
     {
-        if (count_success < 8)
+        if (count_success < 4)
         {
             if (WaitingForKey == 0)
             {
+                PASS.gameObject.SetActive(false);
+                FAIL.gameObject.SetActive(false);
                 QTEGen = Random.Range(0, 3);
+                
+
                 CountingDown = 1;
                 StartCoroutine(Count());
                 if (QTEGen == 0)
                 {
                     WaitingForKey = 1;
+                    SPACE.gameObject.SetActive(true);
                     print("space"); //UI
                 }
                 if (QTEGen == 1)
                 {
                     WaitingForKey = 1;
+                    F.gameObject.SetActive(true);
                     print("F"); //UI
                 }
                 if (QTEGen == 2)
                 {
                     WaitingForKey = 1;
+                    G.gameObject.SetActive(true);
                     print("G"); //UI
                 }
             }
@@ -102,17 +110,38 @@ public class QTEsystem : MonoBehaviour
         }
         else
         {
-            print("成功desu");
+            F.gameObject.SetActive(false);
+            G.gameObject.SetActive(false);
+            SPACE.gameObject.SetActive(false);
+            PASS.gameObject.SetActive(false);
+            FAIL.gameObject.SetActive(false);
+            SUCCESS.gameObject.SetActive(true);
+            //Waitmessage();
+            diary.gameObject.SetActive(true);
             player.GetComponent<player_fungus_village>().send_messege("OS_WellSuccess");
+        }
+        if (SUCCESS.gameObject.activeSelf)
+        {
+            if (Input.anyKey)
+            {
+                SUCCESS.gameObject.SetActive(false);
+            }
         }
     }
 
 
+    IEnumerator Waitmessage()
+    {
+        yield return new WaitForSeconds(10.0f);
+    }
     IEnumerator KeyPressing()
     {
         QTEGen = -1;
         if (CorrectKey == 1)
         {
+            F.gameObject.SetActive(false);
+            G.gameObject.SetActive(false);
+            SPACE.gameObject.SetActive(false);
             CountingDown = 0;
             print("PASS"); //UI
             yield return new WaitForSeconds(0.5f);
@@ -120,9 +149,13 @@ public class QTEsystem : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
+            //PASS.gameObject.SetActive(true);
         }
         if (CorrectKey == 0)
         {
+            F.gameObject.SetActive(false);
+            G.gameObject.SetActive(false);
+            SPACE.gameObject.SetActive(false);
             CountingDown = 0;
             print("FAILKEY"); //UI
             yield return new WaitForSeconds(0.5f);
@@ -130,17 +163,20 @@ public class QTEsystem : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
+            FAIL.gameObject.SetActive(true);
+
         }
     }
 
     IEnumerator Count()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         if (CountingDown == 1)
         {
             QTEGen = -1;
             CountingDown = 0;
             print("FAIL");
+            FAIL.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             CorrectKey = -1;
             yield return new WaitForSeconds(0.5f);

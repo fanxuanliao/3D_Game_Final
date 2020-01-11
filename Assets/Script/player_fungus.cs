@@ -110,7 +110,17 @@ public class player_fungus : MonoBehaviour
                 case "sword":
                     Flowchart.BroadcastFungusMessage("Check_sword");
                     break;
-
+                case "basement_door":
+                    Flowchart.BroadcastFungusMessage("Door_open");
+                    break;
+                case "diary_explaination":
+                    print("fungus d");
+                    Flowchart.BroadcastFungusMessage("Proof_info");
+                    break;
+                case "Collision_Obstacle":
+                    Flowchart.BroadcastFungusMessage("Obstacle");
+                    break;
+                    
                 default:
                     break;
             }

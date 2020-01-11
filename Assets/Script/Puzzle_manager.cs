@@ -63,7 +63,6 @@ public class Puzzle_manager : MonoBehaviour
                         {
                             GameObject.Find("Player").GetComponent<Pickup_controller>().ability[2] = true;
                             //print("裝水水");
-                            //裝水
                         }
                         break;
                     case "UNDER_BED":

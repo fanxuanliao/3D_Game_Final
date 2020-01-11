@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus;
 
 public class player_controller_road : MonoBehaviour
 {
     public float speed = 6.0f;
-    public Flowchart flowchart;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +32,6 @@ public class player_controller_road : MonoBehaviour
         if (other.gameObject.name == "Portal")
         {
             SceneManager.LoadScene(3);  //傳送至村莊
-        }
-        if (other.gameObject.name == "obstacle_Ending")
-        {
-            Flowchart.BroadcastFungusMessage("Ending");
         }
     }
 

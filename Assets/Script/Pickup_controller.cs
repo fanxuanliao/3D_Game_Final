@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Fungus;
 
 public class Pickup_controller : MonoBehaviour
@@ -14,6 +15,9 @@ public class Pickup_controller : MonoBehaviour
     public GameObject magic;
     public GameObject transport;
     public Flowchart flowchart;
+    public Button diary;
+    public GameObject diary_effect;
+    private bool clear;
 
     enum intereactiveIndex : int
     {
@@ -31,13 +35,13 @@ public class Pickup_controller : MonoBehaviour
     }
 
     internal bool[] ability = new bool[]{ false, false, false };
-    internal bool[] backpack = new bool[]{ false, false, false, false };
+    internal bool[] backpack = new bool[]{ false, false, false, false ,false};
     internal bool stairs = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        clear = false;
     }
 
     // Update is called once per frame
@@ -66,24 +70,37 @@ public class Pickup_controller : MonoBehaviour
                     //檢查點到東西的名稱，把ability的真假值改掉 
                     //print(ability[index]); //debug
                     Destroy(hit.transform.gameObject);
+                    GameObject.Find("UI_manager").GetComponent<UI_controller>().itembool[index] = true;
 
                 }
                 else if (hit.transform.gameObject.tag == "clues") // 要蒐集的物件
                 {
                     if (hit.transform.gameObject.name == "DIARY")
                     {
+                        
                         if(backpack[0] && backpack[1] && backpack[2])
                         {
-                            GameObject.Find("Obstacle").GetComponent<BoxCollider>().enabled = false;
-                            magic.SetActive(true);
-                            transport.SetActive(true);
-                            print("門開ㄌ");
-                            //蒐集完了好棒跳記憶
+                            if (!clear)
+                            {
+                                GameObject.Find("Obstacle").GetComponent<BoxCollider>().enabled = false;
+                                magic.SetActive(true);
+                                transport.SetActive(true);
+                                backpack[4] = true;
+                                player.GetComponent<player_fungus>().send_messege("basement_door");
+                                //fungus多說亮起了奇怪的光
+                                diary_effect.SetActive(true);
+                                clear = true;
+                            }
+                            else
+                            {
+                                diary.gameObject.SetActive(true);
+                            }
                         }
                         else
                         {
                             backpack[3] = true;
-                            //print("e04");
+                            GameObject.Find("UI_manager").GetComponent<Backpack_controller>().backpackbool[3] = true;
+                            player.GetComponent<player_fungus>().send_messege("diary_explaination");//到這一行之前都有執行 只有fungus出不來 whywhywhyhow
                             //解釋要有所有勇者ㄉ證明才能打開
                         }
                     }
@@ -93,6 +110,8 @@ public class Pickup_controller : MonoBehaviour
                         backpack[index] = true;
                         //檢查點到東西的名稱，把backpack的真假值改掉
                         Destroy(hit.transform.gameObject);
+                        GameObject.Find("UI_manager").GetComponent<Backpack_controller>().backpackbool[index] = true;
+
                     }
                 }
                 else if (hit.transform.gameObject.tag == "checking") //調查物件
@@ -103,6 +122,13 @@ public class Pickup_controller : MonoBehaviour
                 {
                     hit.transform.gameObject.GetComponent<Door_controller>().hit();
                 }
+            }
+        }
+        if (diary.gameObject.activeSelf)
+        {
+            if (Input.anyKey)
+            {
+                diary.gameObject.SetActive(false);
             }
         }
     }
