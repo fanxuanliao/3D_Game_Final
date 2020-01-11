@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/small_room.unity
     guid: 9c8539f753d4782429c4e8d758caad8b
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 66540cb4facc3424eb6bb0c1dba30e7d
   m_configObjects: {}

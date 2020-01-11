@@ -346,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: Ending
-  value: 0
+  value: 1
 --- !u!114 &-4627401024492376092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   itemId: 8
   indentLevel: 0
   compareOperator: 0
-  variable: {fileID: 3241137016807258722}
+  variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 1

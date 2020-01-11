@@ -28,6 +28,12 @@ public class player_fungus_road : MonoBehaviour
             case "Obstacle_ending":
                 Flowchart.BroadcastFungusMessage("GO_ending");
                 break;
+            case "Obstacle_villa":
+                Flowchart.BroadcastFungusMessage("GO_villa");
+                break;
+            case "Ending":
+                Flowchart.BroadcastFungusMessage("Ending");
+                break;
             default:
                 break;
         }
