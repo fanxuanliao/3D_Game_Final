@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.SceneManagement;
 
 public class player_fungus_village : MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class player_fungus_village : MonoBehaviour
             cantalk = true;
     }
 
+    public void GoInToHeadHouse()
+    {
+        SceneManager.LoadScene(4);
+    }
 
     public void send_messege(string object_name)
     {
@@ -157,14 +162,9 @@ public class player_fungus_village : MonoBehaviour
                 case "WellSuccess":
                     Flowchart.BroadcastFungusMessage("OS_WellSuccess");
                     break;
-                /*
-        case "Bed":
-            Flowchart.BroadcastFungusMessage("CheckBced");
-            break;
-        case "Bed":
-            Flowchart.BroadcastFungusMessage("CheckBced");
-            break;
-            */
+                case "headDoor":
+                    Flowchart.BroadcastFungusMessage("EnterHeadHouse");
+                    break;
                 default:
                     break;
             }
