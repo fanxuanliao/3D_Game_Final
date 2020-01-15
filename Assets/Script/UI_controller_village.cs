@@ -65,7 +65,7 @@ public class UI_controller_village : MonoBehaviour
         }
         backpackswitch[1] = flowchart.GetBooleanVariable("OrderTaskRecieved");
         backpackswitch[2] = flowchart.GetBooleanVariable("DoneOrderTask");
-        //backpackswitch[3] = flowchart.GetBooleanVariable(""); //推完箱子之後
+        backpackswitch[3] = flowchart.GetBooleanVariable("DoneBoxTask"); //推完箱子之後
         if (flowchart.GetIntegerVariable("InvestigatedReligionNum") >= 3)
         {
             backpackswitch[4] = true;

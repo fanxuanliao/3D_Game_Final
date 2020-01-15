@@ -68,6 +68,12 @@ public class Pickup_controller_village : MonoBehaviour
                     {
                         player.GetComponent<player_fungus_village>().send_messege(hit.transform.name);//用fungus顯示物品資訊
                     }
+                    if (hit.transform.gameObject.name == "Target_Box")
+                    {
+                        print("拿到貨物");
+                        flowchart.BroadcastMessage("check_targetbox");
+                        flowchart.SetBooleanVariable("DoneBoxTask", true);
+                    }
                 }
                 
                 else if (hit.transform.gameObject.tag == "Door")

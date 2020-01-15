@@ -107,7 +107,7 @@ public class player_fungus_village : MonoBehaviour
                     }
                     break;
                 case "inn_keeper":
-                    if (flowchart.GetBooleanVariable("DoneOrderTask") == true)
+                    if (flowchart.GetBooleanVariable("DoneBoxTask") == true)
                     {
                         Flowchart.BroadcastFungusMessage("talkToInnKeeper_DoneOrderTask");
                     }

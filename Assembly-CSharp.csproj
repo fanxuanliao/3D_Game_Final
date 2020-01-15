@@ -62,6 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\box_obstacle.cs" />
+    <Compile Include="Assets\box_reset.cs" />
+    <Compile Include="Assets\boxpuzzle_starter.cs" />
     <Compile Include="Assets\BrokenVector\UltimateDungeonPack\Scenes\Demo\FPControls\Scripts\CharacterController.cs" />
     <Compile Include="Assets\BrokenVector\UltimateDungeonPack\Scenes\Demo\FPControls\Scripts\MouseCamLook.cs" />
     <Compile Include="Assets\BrokenVector\UltimateDungeonPack\Scripts\LightImprove.cs" />
