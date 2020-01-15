@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fungus;
 
 public class QTEsystem : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class QTEsystem : MonoBehaviour
     public RawImage PASS;
     public RawImage FAIL;
     public RawImage SUCCESS;
+    public Flowchart flowchart;
+    private bool showpic;
     // Update is called once per frame
     void Update()
     {
@@ -118,12 +121,14 @@ public class QTEsystem : MonoBehaviour
             SUCCESS.gameObject.SetActive(true);
             //Waitmessage();
             diary.gameObject.SetActive(true);
-            player.GetComponent<player_fungus_village>().send_messege("OS_WellSuccess");
+            flowchart.BroadcastMessage("OS_WellSuccess");
         }
         if (SUCCESS.gameObject.activeSelf)
         {
-            if (Input.anyKey)
+            
+            if (Input.anyKey && showpic)
             {
+                showpic = false;
                 SUCCESS.gameObject.SetActive(false);
             }
         }

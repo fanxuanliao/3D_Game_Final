@@ -28,5 +28,10 @@ public class QTE_controller : MonoBehaviour
     {
         this.GetComponent<QTEsystem>().enabled = true;
     }
+
+    internal void stop_QTE()
+    {
+        this.GetComponent<QTEsystem>().enabled = false;
+    }
 }
 
