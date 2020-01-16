@@ -82,6 +82,7 @@ public class Pickup_controller_village : MonoBehaviour
                 }
             }
         }
+
         if (diary.gameObject.activeSelf)
         {
             if (Input.anyKey)
