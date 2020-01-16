@@ -15,7 +15,7 @@ public class Pickup_controller : MonoBehaviour
     public GameObject magic;
     public GameObject transport;
     public Flowchart flowchart;
-    public Button diary;
+    public RawImage diary;
     public GameObject diary_effect;
     private bool clear;
 
@@ -84,7 +84,6 @@ public class Pickup_controller : MonoBehaviour
                             {
                                 GameObject.Find("Obstacle").GetComponent<BoxCollider>().enabled = false;
                                 magic.SetActive(true);
-                                transport.SetActive(true);
                                 backpack[4] = true;
                                 player.GetComponent<player_fungus>().send_messege("basement_door");
                                 //fungus多說亮起了奇怪的光
@@ -100,7 +99,9 @@ public class Pickup_controller : MonoBehaviour
                         {
                             backpack[3] = true;
                             GameObject.Find("UI_manager").GetComponent<Backpack_controller>().backpackbool[3] = true;
-                            player.GetComponent<player_fungus>().send_messege("diary_explaination");//到這一行之前都有執行 只有fungus出不來 whywhywhyhow
+                            print("怒");
+                            Flowchart.BroadcastFungusMessage("diary_explaination");//到這一行之前都有執行 只有fungus出不來 whywhywhyhow
+                            print("說明在哪裡");
                             //解釋要有所有勇者ㄉ證明才能打開
                         }
                     }

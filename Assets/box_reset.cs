@@ -5,10 +5,10 @@ using UnityEngine;
 public class box_reset : MonoBehaviour
 {
     // Start is called before the first frame update
-    Vector3 origin;
+    Vector3 origin ;
     void Start()
     {
-        origin = transform.position;   
+       origin = transform.position;   
     }
 
     // Update is called once per frame
@@ -16,6 +16,7 @@ public class box_reset : MonoBehaviour
     {
         if (GameObject.Find("box_starter").GetComponent<boxpuzzle_starter>().reset)
         {
+            print("reset");
             transform.position = origin;
         }
     }

@@ -7,6 +7,9 @@ using Fungus;
 
 public class Lock_controller : MonoBehaviour
 {
+
+    public GameObject transport;
+
     [SerializeField] Material[] password;
     float raylength = 4.0f;
     int index;
@@ -83,6 +86,7 @@ public class Lock_controller : MonoBehaviour
                 gameObject.SetActive(false);
                 print(currentRenderer.material.color.a);
             }
+           transport.SetActive(true);
         }
 
     }

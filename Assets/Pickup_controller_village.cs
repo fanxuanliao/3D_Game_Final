@@ -71,7 +71,7 @@ public class Pickup_controller_village : MonoBehaviour
                     if (hit.transform.gameObject.name == "Target_Box")
                     {
                         print("拿到貨物");
-                        flowchart.BroadcastMessage("check_targetbox");
+                        Flowchart.BroadcastFungusMessage("check_targetbox");
                         flowchart.SetBooleanVariable("DoneBoxTask", true);
                     }
                 }

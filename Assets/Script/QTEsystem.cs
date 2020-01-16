@@ -121,7 +121,7 @@ public class QTEsystem : MonoBehaviour
             SUCCESS.gameObject.SetActive(true);
             //Waitmessage();
             diary.gameObject.SetActive(true);
-            flowchart.BroadcastMessage("OS_WellSuccess");
+            Flowchart.BroadcastFungusMessage("OS_WellSuccess");
         }
         if (SUCCESS.gameObject.activeSelf)
         {

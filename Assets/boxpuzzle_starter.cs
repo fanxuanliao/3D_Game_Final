@@ -5,7 +5,7 @@ using Fungus;
 
 public class boxpuzzle_starter : MonoBehaviour
 {
-    internal bool reset = false;
+    public bool reset = false;
     bool first = true;
     public Flowchart flowchart;
     // Start is called before the first frame update
@@ -28,11 +28,12 @@ public class boxpuzzle_starter : MonoBehaviour
         if (first)
         {
             first = false;
-            flowchart.BroadcastMessage("box_explain");
+            Flowchart.BroadcastFungusMessage("box_explain");
             //解釋箱子運作的方式
         }
         else
         {
+            print("else");
             reset = true;
         }
     }
